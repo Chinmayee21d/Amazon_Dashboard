@@ -4,7 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from sklearn.linear_model import LinearRegression
 import numpy as np
-
+#Deveops webhooks
 # Page layout optimization
 st.set_page_config(layout="wide", page_title="Amazon Sales Dashboard")
 
