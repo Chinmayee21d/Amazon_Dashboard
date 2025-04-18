@@ -66,3 +66,14 @@ pipeline {
         }
     }
 }
+stage('Build & Push Docker Image') {
+    steps {
+        script {
+            def imageName = "yourdockerhubusername/amazon-sales-dashboard:latest"
+
+            bat "docker build -t ${imageName} ."
+            bat "docker login -u yourdockerhubusername -p yourdockerhubpassword"
+            bat "docker push ${imageName}"
+        }
+    }
+}
