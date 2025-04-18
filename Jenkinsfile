@@ -66,14 +66,11 @@ pipeline {
         }
     }
 }
-stage('Build & Push Docker Image') {
+stage('Run Docker Container') {
     steps {
         script {
-            def imageName = "yourdockerhubusername/amazon-sales-dashboard:latest"
-
-            bat "docker build -t ${imageName} ."
-            bat "docker login -u yourdockerhubusername -p yourdockerhubpassword"
-            bat "docker push ${imageName}"
+            def imageName = "aishwarya838/amazon-sales-dashboard:latest"
+            bat "docker run -d -p 8501:8501 ${imageName}"
         }
     }
 }
