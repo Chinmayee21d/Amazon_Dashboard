@@ -51,6 +51,15 @@ pipeline {
                 // Example: bat '.\\venv\\Scripts\\streamlit run app.py'
             }
         }
+
+        stage('Run Docker Container') {
+            steps {
+                script {
+                    def imageName = "aishwarya838/amazon-sales-dashboard:latest"
+                    bat "docker run -d -p 8501:8501 ${imageName}"
+                }
+            }
+        }
     }
 
     post {
@@ -63,14 +72,6 @@ pipeline {
         }
         success {
             echo 'Build succeeded!'
-        }
-    }
-}
-stage('Run Docker Container') {
-    steps {
-        script {
-            def imageName = "aishwarya838/amazon-sales-dashboard:latest"
-            bat "docker run -d -p 8501:8501 ${imageName}"
         }
     }
 }
