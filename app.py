@@ -17,7 +17,7 @@ sales_data = sales_data.dropna(subset=['Order Date'])
 sales_data['Year'] = sales_data['Order Date'].dt.year
 
 # Sidebar navigation
-st.sidebar.title("📊 Amazon Sales Dashboard Devops Deployment")
+st.sidebar.title("📊 Amazon Sales Dashboard")
 option = st.sidebar.radio("Select Analysis:",
                           ["Yearly Sales by Product", "Probability of Sales", "Top 5 Most Profitable Products",
                            "Sales Forecasting"])
